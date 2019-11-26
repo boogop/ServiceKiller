@@ -217,6 +217,13 @@ namespace ServiceKiller
 
         }
 
+        private void clearPrefs()
+        {
+            string path = Application.StartupPath + @"\sch.pref";
+            System.IO.File.Delete(path);
+            lstSearch.Items.Clear();
+        }
+
         private void stopAllServices()
         {
             string foo = "Are you sure you want to stop all services?";
@@ -285,6 +292,17 @@ namespace ServiceKiller
             stopAllServices();
         }
 
+        private void btnClearList_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                clearPrefs();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -323,8 +341,8 @@ namespace ServiceKiller
                 btnFind_Click(null, null);
         }
 
-        #endregion
 
+        #endregion
 
     }
 }
