@@ -34,6 +34,8 @@
             this.txtServiceName = new System.Windows.Forms.TextBox();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.lblStatus = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -42,16 +44,14 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.RichTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnClearList = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.lstSearch = new System.Windows.Forms.ListBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.btnAdd = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnAll = new System.Windows.Forms.Button();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.btnFind = new System.Windows.Forms.Button();
-            this.btnClearList = new System.Windows.Forms.Button();
             this.contextMenuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -102,6 +102,24 @@
             this.contextMenuStrip1.Size = new System.Drawing.Size(110, 52);
             this.contextMenuStrip1.Text = "Actions";
             this.contextMenuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.contextMenuStrip1_ItemClicked);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Image = global::ServiceKiller.Properties.Resources.DeleteHS;
+            this.toolStripMenuItem1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(109, 24);
+            this.toolStripMenuItem1.Text = "Stop";
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Image = global::ServiceKiller.Properties.Resources.DataContainer_MoveNextHS1;
+            this.toolStripMenuItem2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolStripMenuItem2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(109, 24);
+            this.toolStripMenuItem2.Text = "Start";
             // 
             // imageList1
             // 
@@ -195,6 +213,28 @@
             this.panel1.Size = new System.Drawing.Size(271, 604);
             this.panel1.TabIndex = 13;
             // 
+            // btnClearList
+            // 
+            this.btnClearList.Image = global::ServiceKiller.Properties.Resources.DeleteHS;
+            this.btnClearList.Location = new System.Drawing.Point(190, 58);
+            this.btnClearList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnClearList.Name = "btnClearList";
+            this.btnClearList.Size = new System.Drawing.Size(28, 23);
+            this.btnClearList.TabIndex = 16;
+            this.btnClearList.UseVisualStyleBackColor = true;
+            this.btnClearList.Click += new System.EventHandler(this.btnClearList_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Image = global::ServiceKiller.Properties.Resources.DataContainer_MoveNextHS1;
+            this.btnAdd.Location = new System.Drawing.Point(229, 58);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(28, 23);
+            this.btnAdd.TabIndex = 15;
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
             // lstSearch
             // 
             this.lstSearch.FormattingEnabled = true;
@@ -215,24 +255,13 @@
             this.txtSearch.TabIndex = 13;
             this.txtSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearch_KeyPress);
             // 
-            // btnAdd
-            // 
-            this.btnAdd.Image = global::ServiceKiller.Properties.Resources.DataContainer_MoveNextHS1;
-            this.btnAdd.Location = new System.Drawing.Point(229, 58);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(28, 23);
-            this.btnAdd.TabIndex = 15;
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
             // btnSave
             // 
-            this.btnSave.Image = global::ServiceKiller.Properties.Resources.onebit_29;
-            this.btnSave.Location = new System.Drawing.Point(187, 238);
+            this.btnSave.Image = global::ServiceKiller.Properties.Resources.onebit_12;
+            this.btnSave.Location = new System.Drawing.Point(187, 231);
             this.btnSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(71, 63);
+            this.btnSave.Size = new System.Drawing.Size(69, 59);
             this.btnSave.TabIndex = 12;
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -249,24 +278,6 @@
             this.btnAll.UseVisualStyleBackColor = true;
             this.btnAll.Click += new System.EventHandler(this.btnAll_Click);
             // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Image = global::ServiceKiller.Properties.Resources.DeleteHS;
-            this.toolStripMenuItem1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(109, 24);
-            this.toolStripMenuItem1.Text = "Stop";
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Image = global::ServiceKiller.Properties.Resources.DataContainer_MoveNextHS1;
-            this.toolStripMenuItem2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toolStripMenuItem2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(109, 24);
-            this.toolStripMenuItem2.Text = "Start";
-            // 
             // btnFind
             // 
             this.btnFind.Image = global::ServiceKiller.Properties.Resources.onebit_27;
@@ -277,17 +288,6 @@
             this.btnFind.TabIndex = 3;
             this.btnFind.UseVisualStyleBackColor = true;
             this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
-            // 
-            // btnClearList
-            // 
-            this.btnClearList.Image = global::ServiceKiller.Properties.Resources.DeleteHS;
-            this.btnClearList.Location = new System.Drawing.Point(190, 58);
-            this.btnClearList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnClearList.Name = "btnClearList";
-            this.btnClearList.Size = new System.Drawing.Size(28, 23);
-            this.btnClearList.TabIndex = 16;
-            this.btnClearList.UseVisualStyleBackColor = true;
-            this.btnClearList.Click += new System.EventHandler(this.btnClearList_Click);
             // 
             // Form1
             // 

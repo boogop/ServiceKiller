@@ -129,18 +129,6 @@
     <None Include="Resources\onebit_271.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\radiant.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\abstract_black_multicolor_1920x1200.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Dell_Alienware_1920x1080.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\lunar_rivets.bmp" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\DataContainer_MoveNextHS.png" />
   </ItemGroup>
   <ItemGroup>
@@ -152,7 +140,6 @@
     <None Include="Resources\CheckSpellingHS.png" />
     <None Include="Resources\onebit_28.png" />
     <None Include="Resources\onebit_12.png" />
-    <None Include="Resources\downloads.png" />
     <None Include="Resources\SaveAllHS.png" />
   </ItemGroup>
   <ItemGroup>

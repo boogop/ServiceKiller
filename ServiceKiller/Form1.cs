@@ -1,14 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.ServiceProcess;
-using System.Management;
 
 /*
  * A simple app to search for services and kill them because I was tired of doing that manually 
@@ -31,6 +24,7 @@ namespace ServiceKiller
             toolTip1.SetToolTip(btnSave, "Save search terms");
             toolTip1.SetToolTip(btnAdd, "Add to list");
             toolTip1.SetToolTip(btnAll, "Kill all listed services");
+            toolTip1.SetToolTip(btnClearList, "Clear all saved search terms");
         }
 
 
