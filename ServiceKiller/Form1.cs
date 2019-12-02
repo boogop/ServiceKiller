@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.ServiceProcess;
+using rS = ServiceKiller.Properties.Resources;
 
 /*
  * A simple app to search for services and kill them because I was tired of doing that manually 
  * 
  * Only works if you run it as administrator
+ * 
+ * https://github.com/boogop/ServiceKiller
  */
 
 namespace ServiceKiller
@@ -20,11 +23,11 @@ namespace ServiceKiller
             InitializeComponent();
 
             readPrefs();
-            toolTip1.SetToolTip(btnFind, "Find matching services");
-            toolTip1.SetToolTip(btnSave, "Save search terms");
-            toolTip1.SetToolTip(btnAdd, "Add to list");
-            toolTip1.SetToolTip(btnAll, "Kill all listed services");
-            toolTip1.SetToolTip(btnClearList, "Clear all saved search terms");
+            toolTip1.SetToolTip(btnFind, rS.FindServices);   
+            toolTip1.SetToolTip(btnSave, rS.SaveTerm);
+            toolTip1.SetToolTip(btnAdd, rS.AddList);
+            toolTip1.SetToolTip(btnAll, rS.KillAll);
+            toolTip1.SetToolTip(btnClearList, rS.ClearSave);
         }
 
 
@@ -41,27 +44,30 @@ namespace ServiceKiller
             {
                 treeView1.SelectedNode = e.Node;
 
+                string[] foo = e.Node.Text.Split(':');
+                if (foo.Length == 0) return;
+
                 if (e.Button == MouseButtons.Left)
                 {
-                    string nodename = e.Node.Text;
+                    string nodename = foo[0];
                     getServiceDescription(nodename);
                 }
 
                 if (e.Button == MouseButtons.Right)
                 {
                     string nodename = e.Node.Text;
-                    selectedNode = nodename;
+                    selectedNode = foo[0];// nodename;
                     treeView1.SelectedNode.Name = nodename;
                     contextMenuStrip1.Show();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "Service Killer");
+                MessageBox.Show(ex.ToString(), rS.AppTitle);
             }
             finally
             {
-                lblStatus.Text = "Ready...";
+                lblStatus.Text = "Ready";
             }
         }
 
@@ -113,11 +119,16 @@ namespace ServiceKiller
                         if (displayname.IndexOf(tofind) == -1) continue;
                    
                     string stat = clsServices.getStatus(services[i]);
+                    double memsize = clsServices.getMemSize(displayname);
+                    displayname += ":  " + memsize.ToString() + "MB";
 
                     // assign a pic to running/not running
                     int pic = 9;
                     if (stat.ToUpper() == "STOPPED")
+                    {
+                        if (chkRunning.Checked) continue;
                         pic = 7;
+                    }
 
                     // add child node
                     TreeNode child = new TreeNode(displayname, pic, pic);
@@ -129,11 +140,11 @@ namespace ServiceKiller
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "Service Killer");
+                MessageBox.Show(ex.ToString(), rS.AppTitle);
             }
             finally
             {
-                lblStatus.Text = "Ready...";
+                lblStatus.Text = "Ready";
             }
         }
 
@@ -145,8 +156,11 @@ namespace ServiceKiller
                 Application.DoEvents();
                 double timeout = chkNull.numNull(txtTimeout.Text);
 
+                string[] foo = node.Split(':');
+                if (foo.Length == 0) return;
+
                 // try to start the service
-                clsServices.startService(node, timeout);
+                clsServices.startService(foo[0], timeout);
                 
                 if (chkNull.isNull(txtServiceName.Text)) return;
 
@@ -156,11 +170,11 @@ namespace ServiceKiller
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "Service Killer");
+                MessageBox.Show(ex.ToString(), rS.AppTitle);
             }
             finally
             {
-                lblStatus.Text = "Ready...";
+                lblStatus.Text = "Ready";
             }
         }
 
@@ -172,8 +186,11 @@ namespace ServiceKiller
                 Application.DoEvents();
                 double timeout = chkNull.numNull(txtTimeout.Text);
 
+                string[] foo = node.Split(':');
+                if (foo.Length == 0) return;
+
                 // try to stop the service
-                clsServices.stopService(node, timeout);
+                clsServices.stopService(foo[0], timeout);
                 
                 if (chkNull.isNull(txtServiceName.Text)) return;
 
@@ -186,11 +203,11 @@ namespace ServiceKiller
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "Service Killer");
+                MessageBox.Show(ex.ToString(), rS.AppTitle);
             }
             finally
             {
-                lblStatus.Text = "Ready...";
+                lblStatus.Text = "Ready";
             }
         }
 
@@ -220,8 +237,8 @@ namespace ServiceKiller
 
         private void stopAllServices()
         {
-            string foo = "Are you sure you want to stop all services?";
-            if (MessageBox.Show(foo, "Really?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+            string msg = "Are you sure you want to stop all services?";
+            if (MessageBox.Show(msg, "Really?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
                 return;
 
             List<string> t = new List<string>();
@@ -230,7 +247,10 @@ namespace ServiceKiller
                 foreach (TreeNode n in treeView1.Nodes[0].Nodes)
                 {
                     string nodename = n.Text.ToUpper();
-                    t.Add(nodename);                   
+                    string[] foo = nodename.Split(':');
+                    if (foo.Length == 0) continue;
+
+                    t.Add(foo[0]);                   
                 }
                 double timeout = chkNull.numNull(txtTimeout.Text);
                 clsServices.stopService(t, timeout);
@@ -240,11 +260,11 @@ namespace ServiceKiller
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "Service Killer");
+                MessageBox.Show(ex.ToString(), rS.AppTitle);
             }
             finally
             {
-                lblStatus.Text = "Ready...";
+                lblStatus.Text = "Ready";
             }
         }
 
@@ -256,7 +276,7 @@ namespace ServiceKiller
 
             GeneralTools.WriteAnythingToFile(Application.StartupPath, @"\" + "sch.pref", s);
 
-            MessageBox.Show("Preferences saved!", "Service Killer");
+            MessageBox.Show("Preferences saved!", rS.AppTitle);
         }
 
         #endregion

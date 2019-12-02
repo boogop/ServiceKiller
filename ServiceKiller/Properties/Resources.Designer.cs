@@ -61,12 +61,39 @@ namespace ServiceKiller.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add to list.
+        /// </summary>
+        internal static string AddList {
+            get {
+                return ResourceManager.GetString("AddList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ServiceKiller.
+        /// </summary>
+        internal static string AppTitle {
+            get {
+                return ResourceManager.GetString("AppTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap CheckSpellingHS {
             get {
                 object obj = ResourceManager.GetObject("CheckSpellingHS", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clear all saved search terms.
+        /// </summary>
+        internal static string ClearSave {
+            get {
+                return ResourceManager.GetString("ClearSave", resourceCulture);
             }
         }
         
@@ -87,6 +114,24 @@ namespace ServiceKiller.Properties {
             get {
                 object obj = ResourceManager.GetObject("DeleteHS", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Find matching services.
+        /// </summary>
+        internal static string FindServices {
+            get {
+                return ResourceManager.GetString("FindServices", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kill all listed services.
+        /// </summary>
+        internal static string KillAll {
+            get {
+                return ResourceManager.GetString("KillAll", resourceCulture);
             }
         }
         
@@ -177,6 +222,15 @@ namespace ServiceKiller.Properties {
             get {
                 object obj = ResourceManager.GetObject("SaveAllHS", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save search terms.
+        /// </summary>
+        internal static string SaveTerm {
+            get {
+                return ResourceManager.GetString("SaveTerm", resourceCulture);
             }
         }
     }

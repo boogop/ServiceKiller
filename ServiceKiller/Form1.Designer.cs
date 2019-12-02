@@ -52,6 +52,7 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnAll = new System.Windows.Forms.Button();
             this.btnFind = new System.Windows.Forms.Button();
+            this.chkRunning = new System.Windows.Forms.CheckBox();
             this.contextMenuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -70,7 +71,7 @@
             this.txtServiceName.Location = new System.Drawing.Point(227, 14);
             this.txtServiceName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtServiceName.Name = "txtServiceName";
-            this.txtServiceName.Size = new System.Drawing.Size(265, 22);
+            this.txtServiceName.Size = new System.Drawing.Size(329, 22);
             this.txtServiceName.TabIndex = 1;
             this.txtServiceName.Text = "Dell";
             this.txtServiceName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtServiceName_KeyPress);
@@ -87,7 +88,7 @@
             this.treeView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.treeView1.Name = "treeView1";
             this.treeView1.SelectedImageIndex = 0;
-            this.treeView1.Size = new System.Drawing.Size(480, 508);
+            this.treeView1.Size = new System.Drawing.Size(544, 508);
             this.treeView1.TabIndex = 5;
             this.treeView1.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView1_NodeMouseClick);
             this.treeView1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.treeView1_MouseDown);
@@ -207,7 +208,7 @@
             this.panel1.Controls.Add(this.txtDescription);
             this.panel1.Controls.Add(this.btnSave);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Location = new System.Drawing.Point(507, 14);
+            this.panel1.Location = new System.Drawing.Point(568, 14);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(271, 604);
@@ -215,24 +216,26 @@
             // 
             // btnClearList
             // 
+            this.btnClearList.BackColor = System.Drawing.Color.Azure;
             this.btnClearList.Image = global::ServiceKiller.Properties.Resources.DeleteHS;
             this.btnClearList.Location = new System.Drawing.Point(190, 58);
             this.btnClearList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnClearList.Name = "btnClearList";
             this.btnClearList.Size = new System.Drawing.Size(28, 23);
             this.btnClearList.TabIndex = 16;
-            this.btnClearList.UseVisualStyleBackColor = true;
+            this.btnClearList.UseVisualStyleBackColor = false;
             this.btnClearList.Click += new System.EventHandler(this.btnClearList_Click);
             // 
             // btnAdd
             // 
+            this.btnAdd.BackColor = System.Drawing.Color.Azure;
             this.btnAdd.Image = global::ServiceKiller.Properties.Resources.DataContainer_MoveNextHS1;
             this.btnAdd.Location = new System.Drawing.Point(229, 58);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(28, 23);
             this.btnAdd.TabIndex = 15;
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // lstSearch
@@ -257,44 +260,58 @@
             // 
             // btnSave
             // 
+            this.btnSave.BackColor = System.Drawing.Color.Azure;
             this.btnSave.Image = global::ServiceKiller.Properties.Resources.onebit_12;
             this.btnSave.Location = new System.Drawing.Point(187, 231);
             this.btnSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(69, 59);
             this.btnSave.TabIndex = 12;
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnAll
             // 
             this.btnAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAll.BackColor = System.Drawing.Color.Azure;
             this.btnAll.Image = global::ServiceKiller.Properties.Resources.onebit_33;
-            this.btnAll.Location = new System.Drawing.Point(434, 622);
+            this.btnAll.Location = new System.Drawing.Point(498, 622);
             this.btnAll.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAll.Name = "btnAll";
             this.btnAll.Size = new System.Drawing.Size(58, 57);
             this.btnAll.TabIndex = 4;
-            this.btnAll.UseVisualStyleBackColor = true;
+            this.btnAll.UseVisualStyleBackColor = false;
             this.btnAll.Click += new System.EventHandler(this.btnAll_Click);
             // 
             // btnFind
             // 
+            this.btnFind.BackColor = System.Drawing.Color.Azure;
             this.btnFind.Image = global::ServiceKiller.Properties.Resources.onebit_27;
-            this.btnFind.Location = new System.Drawing.Point(421, 41);
+            this.btnFind.Location = new System.Drawing.Point(485, 40);
             this.btnFind.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnFind.Name = "btnFind";
             this.btnFind.Size = new System.Drawing.Size(71, 63);
             this.btnFind.TabIndex = 3;
-            this.btnFind.UseVisualStyleBackColor = true;
+            this.btnFind.UseVisualStyleBackColor = false;
             this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
+            // 
+            // chkRunning
+            // 
+            this.chkRunning.AutoSize = true;
+            this.chkRunning.Location = new System.Drawing.Point(339, 43);
+            this.chkRunning.Name = "chkRunning";
+            this.chkRunning.Size = new System.Drawing.Size(113, 21);
+            this.chkRunning.TabIndex = 14;
+            this.chkRunning.Text = "Running only";
+            this.chkRunning.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(787, 688);
+            this.ClientSize = new System.Drawing.Size(851, 688);
+            this.Controls.Add(this.chkRunning);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtTimeout);
             this.Controls.Add(this.label2);
@@ -341,6 +358,7 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button btnClearList;
+        private System.Windows.Forms.CheckBox chkRunning;
     }
 }
 

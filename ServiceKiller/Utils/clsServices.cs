@@ -10,6 +10,7 @@ namespace ServiceKiller
 {
     internal static class clsServices
     {
+
         internal static void getAllServices(out ServiceController[] foo)
         {
             foo = ServiceController.GetServices();
@@ -61,7 +62,31 @@ namespace ServiceKiller
                 desc = "Unable to read service description";
             }
 
+           // test(svc);
+
             return desc;
+        }
+
+        internal static double getMemSize(string svc)
+        {
+            // slow
+            try
+            {
+                ServiceController service = new ServiceController(svc);
+                string foo = service.ServiceName;
+
+                System.Diagnostics.PerformanceCounter pc = new System.Diagnostics.PerformanceCounter();
+                pc.CategoryName = "Process";
+                pc.CounterName = "Working Set - Private";
+                pc.InstanceName = foo;
+                double memsize = (double)(pc.NextValue() / 1024 / 1024); // mb
+
+                return Math.Round(memsize,2);
+            }
+            catch 
+            {
+                return -1;
+            }
         }
 
         internal static string getStatus(ServiceController svc)
