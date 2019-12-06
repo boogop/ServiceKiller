@@ -133,6 +133,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="error.ico" />
+    <None Include="Resources\Remove.png" />
     <None Include="Resources\onebit_331.png" />
     <None Include="Resources\onebit_31a.png" />
     <None Include="Resources\onebit_29.png" />

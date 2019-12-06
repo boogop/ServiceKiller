@@ -117,33 +117,39 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="CheckSpellingHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CheckSpellingHS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ClearSave" xml:space="preserve">
+    <value>Clear all saved search terms</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="onebit_33" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\onebit_33.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="onebit_271" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\onebit_271.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="DeleteHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DeleteHS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="CheckSpellingHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CheckSpellingHS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="onebit_12" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\onebit_12.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="onebit_27" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\onebit_27.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="AppTitle" xml:space="preserve">
+    <value>ServiceKiller</value>
   </data>
-  <data name="onebit_28" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\onebit_28.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="FindServices" xml:space="preserve">
+    <value>Find matching services</value>
   </data>
-  <data name="SaveAllHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SaveAllHS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="DeleteHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DeleteHS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="DataContainer_MoveNextHS1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DataContainer_MoveNextHS1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="onebit_331" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\onebit_331.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="KillAll" xml:space="preserve">
+    <value>Kill all listed services</value>
+  </data>
+  <data name="onebit_27" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\onebit_27.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="onebit_29" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\onebit_29.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -151,25 +157,25 @@
   <data name="onebit_31a" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\onebit_31a.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="onebit_331" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\onebit_331.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="SaveAllHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SaveAllHS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AddList" xml:space="preserve">
     <value>Add to list</value>
   </data>
-  <data name="AppTitle" xml:space="preserve">
-    <value>ServiceKiller</value>
-  </data>
-  <data name="ClearSave" xml:space="preserve">
-    <value>Clear all saved search terms</value>
-  </data>
-  <data name="FindServices" xml:space="preserve">
-    <value>Find matching services</value>
-  </data>
-  <data name="KillAll" xml:space="preserve">
-    <value>Kill all listed services</value>
-  </data>
   <data name="SaveTerm" xml:space="preserve">
     <value>Save search terms</value>
+  </data>
+  <data name="onebit_271" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\onebit_271.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="onebit_28" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\onebit_28.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Remove" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Remove.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="KillList" xml:space="preserve">
+    <value>Kill all on the favorites list</value>
   </data>
 </root>

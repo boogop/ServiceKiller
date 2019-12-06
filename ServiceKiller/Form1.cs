@@ -28,6 +28,7 @@ namespace ServiceKiller
             toolTip1.SetToolTip(btnAdd, rS.AddList);
             toolTip1.SetToolTip(btnAll, rS.KillAll);
             toolTip1.SetToolTip(btnClearList, rS.ClearSave);
+            toolTip1.SetToolTip(btnKillFaves, rS.KillList);
         }
 
 
@@ -235,11 +236,14 @@ namespace ServiceKiller
             lstSearch.Items.Clear();
         }
 
-        private void stopAllServices()
+        private void stopAllServices(bool confirm)
         {
-            string msg = "Are you sure you want to stop all services?";
-            if (MessageBox.Show(msg, "Really?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
-                return;
+            if (confirm)
+            {
+                string msg = "Are you sure you want to stop all services?";
+                if (MessageBox.Show(msg, "Really?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                    return;
+            }
 
             List<string> t = new List<string>();
             try
@@ -303,7 +307,7 @@ namespace ServiceKiller
 
         private void btnAll_Click(object sender, EventArgs e)
         {
-            stopAllServices();
+            stopAllServices(true);
         }
 
         private void btnClearList_Click(object sender, EventArgs e)
@@ -358,5 +362,17 @@ namespace ServiceKiller
 
         #endregion
 
+        private void btnKillFaves_Click(object sender, EventArgs e)
+        {
+            for(int i = 0;i<lstSearch.Items.Count;i++)
+            {
+                txtServiceName.Text = chkNull.whenNull(lstSearch.Items[i].ToString());
+                if (!chkNull.isNull(txtServiceName.Text))
+                {
+                    btnFind_Click(null, null);
+                    stopAllServices(false);
+                }
+            }
+        }
     }
 }

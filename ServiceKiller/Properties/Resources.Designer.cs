@@ -136,6 +136,15 @@ namespace ServiceKiller.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Kill all on the favorites list.
+        /// </summary>
+        internal static string KillList {
+            get {
+                return ResourceManager.GetString("KillList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap onebit_12 {
@@ -211,6 +220,16 @@ namespace ServiceKiller.Properties {
         internal static System.Drawing.Bitmap onebit_331 {
             get {
                 object obj = ResourceManager.GetObject("onebit_331", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Remove {
+            get {
+                object obj = ResourceManager.GetObject("Remove", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ServiceProcess;
 using System.Management;
+using System.Diagnostics;
 
 namespace ServiceKiller
 {
@@ -80,6 +81,20 @@ namespace ServiceKiller
                 pc.CounterName = "Working Set - Private";
                 pc.InstanceName = foo;
                 double memsize = (double)(pc.NextValue() / 1024 / 1024); // mb
+
+                //Process[] localByName = Process.GetProcessesByName(svc);
+                //foreach (Process p in localByName)
+                //{
+                //    //Console.WriteLine("Private memory size64: {0}", (p.PrivateMemorySize64 / f).ToString("#,##0"));
+                //    memsize += p.WorkingSet64 / 1024/ 1024;
+                //    //Console.WriteLine("Peak virtual memory size64: {0}", (p.PeakVirtualMemorySize64 / f).ToString("#,##0"));
+                //    //Console.WriteLine("Peak paged memory size64: {0}", (p.PeakPagedMemorySize64 / f).ToString("#,##0"));
+                //    //Console.WriteLine("Paged system memory size64: {0}", (p.PagedSystemMemorySize64 / f).ToString("#,##0"));
+                //    //Console.WriteLine("Paged memory size64: {0}", (p.PagedMemorySize64 / f).ToString("#,##0"));
+                //    //Console.WriteLine("Nonpaged system memory size64: {0}", (p.NonpagedSystemMemorySize64 / f).ToString("#,##0"));
+                //}
+
+                //memsize /= 1024;
 
                 return Math.Round(memsize,2);
             }

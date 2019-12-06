@@ -44,6 +44,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.RichTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnKillFaves = new System.Windows.Forms.Button();
             this.btnClearList = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.lstSearch = new System.Windows.Forms.ListBox();
@@ -200,6 +201,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Bisque;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.btnKillFaves);
             this.panel1.Controls.Add(this.btnClearList);
             this.panel1.Controls.Add(this.btnAdd);
             this.panel1.Controls.Add(this.lstSearch);
@@ -213,6 +215,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(271, 604);
             this.panel1.TabIndex = 13;
+            // 
+            // btnKillFaves
+            // 
+            this.btnKillFaves.BackColor = System.Drawing.Color.Azure;
+            this.btnKillFaves.Image = global::ServiceKiller.Properties.Resources.Remove;
+            this.btnKillFaves.Location = new System.Drawing.Point(112, 231);
+            this.btnKillFaves.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnKillFaves.Name = "btnKillFaves";
+            this.btnKillFaves.Size = new System.Drawing.Size(69, 59);
+            this.btnKillFaves.TabIndex = 17;
+            this.btnKillFaves.UseVisualStyleBackColor = false;
+            this.btnKillFaves.Click += new System.EventHandler(this.btnKillFaves_Click);
             // 
             // btnClearList
             // 
@@ -359,6 +373,7 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button btnClearList;
         private System.Windows.Forms.CheckBox chkRunning;
+        private System.Windows.Forms.Button btnKillFaves;
     }
 }
 
