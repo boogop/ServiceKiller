@@ -101,6 +101,7 @@ namespace ServiceKiller
             {
                 lblStatus.Text = "Searching...";
                 Application.DoEvents();
+
                 treeView1.Nodes.Clear();
                 ServiceController[] services;
 
@@ -155,6 +156,7 @@ namespace ServiceKiller
             {
                 lblStatus.Text = "Starting " + node;
                 Application.DoEvents();
+
                 double timeout = chkNull.numNull(txtTimeout.Text);
 
                 string[] foo = node.Split(':');
@@ -185,6 +187,7 @@ namespace ServiceKiller
             {
                 lblStatus.Text = "Stopping " + node;
                 Application.DoEvents();
+
                 double timeout = chkNull.numNull(txtTimeout.Text);
 
                 string[] foo = node.Split(':');
