@@ -36,13 +36,27 @@ namespace ServiceKiller
             service.WaitForStatus(ServiceControllerStatus.Stopped, bail);
         }
 
-        internal static void stopService(List<string> t, double timeout)
+        internal static void stopService(List<string> t, double timeout, bool continueOnFail)
         {
             for (int i = 0; i < t.Count; i++)
             {
                 ServiceController service = new ServiceController(t[i]);
                 if (service.Status == ServiceControllerStatus.Running)
-                    stopService(t[i], timeout);
+                {
+                    if (continueOnFail)
+                    {
+                        try
+                        {
+                            stopService(t[i], timeout);
+
+                        }
+                        catch { }
+                    }
+                    else
+                    {
+                        stopService(t[i], timeout);
+                    }
+                }
             }
         }
 

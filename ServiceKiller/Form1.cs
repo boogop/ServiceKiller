@@ -23,7 +23,7 @@ namespace ServiceKiller
             InitializeComponent();
 
             readPrefs();
-            toolTip1.SetToolTip(btnFind, rS.FindServices);   
+            toolTip1.SetToolTip(btnFind, rS.FindServices);
             toolTip1.SetToolTip(btnSave, rS.SaveTerm);
             toolTip1.SetToolTip(btnAdd, rS.AddList);
             toolTip1.SetToolTip(btnAll, rS.KillAll);
@@ -106,7 +106,7 @@ namespace ServiceKiller
                 ServiceController[] services;
 
                 clsServices.getAllServices(out services);
-               
+
                 // add main node
                 TreeNode main = new TreeNode("Services", 11, 11);
                 treeView1.Nodes.Add(main);
@@ -119,7 +119,7 @@ namespace ServiceKiller
                     // find the one we want. If * then get them all
                     if (tofind != "*")
                         if (displayname.IndexOf(tofind) == -1) continue;
-                   
+
                     string stat = clsServices.getStatus(services[i]);
                     double memsize = clsServices.getMemSize(displayname);
                     displayname += ":  " + memsize.ToString() + "MB";
@@ -164,7 +164,7 @@ namespace ServiceKiller
 
                 // try to start the service
                 clsServices.startService(foo[0], timeout);
-                
+
                 if (chkNull.isNull(txtServiceName.Text)) return;
 
                 // refresh the list, use the search term if it's there
@@ -195,7 +195,7 @@ namespace ServiceKiller
 
                 // try to stop the service
                 clsServices.stopService(foo[0], timeout);
-                
+
                 if (chkNull.isNull(txtServiceName.Text)) return;
 
                 // not sure why I added this arg
@@ -217,7 +217,7 @@ namespace ServiceKiller
 
         private void getServiceDescription(string servicename)
         {
-            txtDescription.Text = clsServices.getServiceDescription(servicename);            
+            txtDescription.Text = clsServices.getServiceDescription(servicename);
         }
 
         private void readPrefs()
@@ -239,7 +239,7 @@ namespace ServiceKiller
             lstSearch.Items.Clear();
         }
 
-        private void stopAllServices(bool confirm)
+        private void stopAllServices(bool confirm, bool continueOnFail)
         {
             if (confirm)
             {
@@ -257,10 +257,10 @@ namespace ServiceKiller
                     string[] foo = nodename.Split(':');
                     if (foo.Length == 0) continue;
 
-                    t.Add(foo[0]);                   
+                    t.Add(foo[0]);
                 }
                 double timeout = chkNull.numNull(txtTimeout.Text);
-                clsServices.stopService(t, timeout);
+                clsServices.stopService(t, timeout, continueOnFail);
 
                 string tofind = txtServiceName.Text.ToUpper();
                 findServices(tofind);
@@ -310,7 +310,7 @@ namespace ServiceKiller
 
         private void btnAll_Click(object sender, EventArgs e)
         {
-            stopAllServices(true);
+            stopAllServices(true, false);
         }
 
         private void btnClearList_Click(object sender, EventArgs e)
@@ -319,7 +319,7 @@ namespace ServiceKiller
             {
                 clearPrefs();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
@@ -367,13 +367,13 @@ namespace ServiceKiller
 
         private void btnKillFaves_Click(object sender, EventArgs e)
         {
-            for(int i = 0;i<lstSearch.Items.Count;i++)
+            for (int i = 0; i < lstSearch.Items.Count; i++)
             {
                 txtServiceName.Text = chkNull.whenNull(lstSearch.Items[i].ToString());
                 if (!chkNull.isNull(txtServiceName.Text))
                 {
                     btnFind_Click(null, null);
-                    stopAllServices(false);
+                    stopAllServices(false, true);
                 }
             }
         }
