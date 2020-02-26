@@ -41,7 +41,24 @@ namespace ServiceKiller
             for (int i = 0; i < t.Count; i++)
             {
                 ServiceController service = new ServiceController(t[i]);
-                if (service.Status == ServiceControllerStatus.Running)
+
+                // some services are non-null but trying to read a status throws an
+                // invalid operation exception
+                bool canProcess;
+                try
+                {
+                    canProcess = service.Status == ServiceControllerStatus.Running;
+                }
+                catch (System.InvalidOperationException)
+                {
+                    canProcess = false;
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+
+                if (canProcess)
                 {
                     if (continueOnFail)
                     {
@@ -84,7 +101,7 @@ namespace ServiceKiller
 
         internal static double getMemSize(string svc)
         {
-            // slow
+            // slow, doesn't work most of the time for wtf reason
             try
             {
                 ServiceController service = new ServiceController(svc);
@@ -107,8 +124,6 @@ namespace ServiceKiller
                 //    //Console.WriteLine("Paged memory size64: {0}", (p.PagedMemorySize64 / f).ToString("#,##0"));
                 //    //Console.WriteLine("Nonpaged system memory size64: {0}", (p.NonpagedSystemMemorySize64 / f).ToString("#,##0"));
                 //}
-
-                //memsize /= 1024;
 
                 return Math.Round(memsize,2);
             }
