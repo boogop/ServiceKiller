@@ -8,5 +8,5 @@ Notes:
 - Be aware of the timeout box. Some services can take a while to stop.
 
 <div align="center">
-    <img src="/ServiceKiller/Resources/service1.png" width="737px"</img> 
+    <img src="UI.png" width="737px"</img> 
 </div>
