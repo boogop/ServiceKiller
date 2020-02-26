@@ -22,7 +22,10 @@ namespace ServiceKiller
         {
             InitializeComponent();
 
+            // read saved searches
             readPrefs();
+
+            // set tooltips
             toolTip1.SetToolTip(btnFind, rS.FindServices);
             toolTip1.SetToolTip(btnSave, rS.SaveTerm);
             toolTip1.SetToolTip(btnAdd, rS.AddList);
@@ -41,6 +44,7 @@ namespace ServiceKiller
 
         private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
+            // Read description or launch context menu
             try
             {
                 treeView1.SelectedNode = e.Node;
@@ -105,6 +109,8 @@ namespace ServiceKiller
                 treeView1.Nodes.Clear();
                 ServiceController[] services;
 
+                // get all services, filter them below. Prob should pass in the filter string
+                // and do it in clsServices
                 clsServices.getAllServices(out services);
 
                 // add main node
@@ -277,6 +283,7 @@ namespace ServiceKiller
 
         private void savePrefs()
         {
+            // save favorite terms to a wtf-level text file
             List<string> s = new List<string>();
             for (int i = 0; i < lstSearch.Items.Count; i++)
                 s.Add(lstSearch.Items[i].ToString());
@@ -339,6 +346,20 @@ namespace ServiceKiller
             lstSearch.Items.Add(txtSearch.Text);
         }
 
+        private void btnKillFaves_Click(object sender, EventArgs e)
+        {
+            // kill all the services in the favorites list
+            for (int i = 0; i < lstSearch.Items.Count; i++)
+            {
+                txtServiceName.Text = chkNull.whenNull(lstSearch.Items[i].ToString());
+                if (!chkNull.isNull(txtServiceName.Text))
+                {
+                    btnFind_Click(null, null);
+                    stopAllServices(false, true);
+                }
+            }
+        }
+
         #endregion
 
 
@@ -361,21 +382,8 @@ namespace ServiceKiller
             if (!chkNull.isNull(txtServiceName.Text))
                 btnFind_Click(null, null);
         }
-
-
+               
         #endregion
 
-        private void btnKillFaves_Click(object sender, EventArgs e)
-        {
-            for (int i = 0; i < lstSearch.Items.Count; i++)
-            {
-                txtServiceName.Text = chkNull.whenNull(lstSearch.Items[i].ToString());
-                if (!chkNull.isNull(txtServiceName.Text))
-                {
-                    btnFind_Click(null, null);
-                    stopAllServices(false, true);
-                }
-            }
-        }
     }
 }
